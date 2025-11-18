@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BudgetContext } from "../context/BudgetContext";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
+
+    const { budgetMode } = useContext(BudgetContext);
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
