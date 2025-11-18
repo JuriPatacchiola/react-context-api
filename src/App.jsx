@@ -9,9 +9,12 @@ import HomePage from "./pages/HomePage";
 import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
 
+import { BudgetProvider } from "./context/BudgetContext";
+
 function App() {
   return (
     <>
+      <BudgetProvider></BudgetProvider>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
