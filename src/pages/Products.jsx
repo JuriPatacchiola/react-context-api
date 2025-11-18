@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BudgetContext } from "../context/BudgetContext";
 
@@ -14,39 +14,38 @@ export default function Products() {
             .then((data) => setProducts(data));
     }, []);
 
+
     const filteredProducts = budgetMode
         ? products.filter((p) => p.price <= 30)
         : products;
+
     return (
-        <>
+        <div>
+            <h1>Prodotti </h1>
 
-            <div>
-                <h1>Prodotti </h1>
-
-                {
-                    filteredProducts.length === 0 ? (
-                        <p>Caricamento...</p>
-                    ) : (
-                        <div className="products-container" >
-                            {
-                                filteredProducts.map((product) => (
-                                    <div key={product.id} className="product-card" >
-                                        <img src={product.image} alt={product.title} />
-                                        <h3>{product.title} </h3>
-                                        < p > {product.price} €</p>
-                                        < button
-                                            className="details-button"
-                                            onClick={() => navigate(`/prodotti/${product.id}`)}
-                                        >
-                                            Scopri di più
-                                        </button>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    )
-                }
-            </div>
-        </>
+            {
+                filteredProducts.length === 0 ? (
+                    <p>Caricamento...</p>
+                ) : (
+                    <div className="products-container" >
+                        {
+                            filteredProducts.map((product) => (
+                                <div key={product.id} className="product-card" >
+                                    <img src={product.image} alt={product.title} />
+                                    <h3>{product.title} </h3>
+                                    < p > {product.price} €</p>
+                                    < button
+                                        className="details-button"
+                                        onClick={() => navigate(`/prodotti/${product.id}`)}
+                                    >
+                                        Scopri di più
+                                    </button>
+                                </div>
+                            ))
+                        }
+                    </div>
+                )
+            }
+        </div>
     );
 }
