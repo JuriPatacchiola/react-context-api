@@ -8,6 +8,10 @@ export function BudgetProvider({ children }) {
 
     return (
         <>
+            <BudgetContext.Provider value={{ budgetMode, setBudgetMode }}>
+                {children}
+            </BudgetContext.Provider>
+
         </>
-    )
+    );
 }
