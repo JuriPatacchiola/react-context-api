@@ -11,6 +11,16 @@ export default function Header() {
             <Link to="/" > Home </Link>
             < Link to="/chi-siamo" > Chi Siamo </Link>
             < Link to="/prodotti" > Prodotti </Link>
+
+            < label >
+                <input
+                    type="checkbox"
+                    checked={budgetMode}
+                    onChange={() => setBudgetMode(!budgetMode)
+                    }
+                />
+                Modalità Budget
+            </label>
         </nav>
     );
 }
