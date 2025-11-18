@@ -14,18 +14,18 @@ import { BudgetProvider } from "./context/BudgetContext";
 function App() {
   return (
     <>
-      <BudgetProvider></BudgetProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/chi-siamo" element={<ChiSiamo />} />
-        <Route path="/prodotti" element={<Products />} />
-        <Route path="/prodotti/:id" element={<ProductDetail />} />
-      </Routes>
-      <Main />
+      <BudgetProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/chi-siamo" element={<ChiSiamo />} />
+          <Route path="/prodotti" element={<Products />} />
+          <Route path="/prodotti/:id" element={<ProductDetail />} />
+        </Routes>
+        <Main />
 
-      <Footer />
-
+        <Footer />
+      </BudgetProvider>
 
     </>
   );
