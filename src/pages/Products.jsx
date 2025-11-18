@@ -13,6 +13,10 @@ export default function Products() {
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
+
+    const filteredProducts = budgetMode
+        ? products.filter((p) => p.price <= 30)
+        : products;
     return (
         <>
             <div>
